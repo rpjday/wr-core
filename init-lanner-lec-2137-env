@@ -165,6 +165,7 @@ PREMIRRORS_append := "\\
     http://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
     https://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
     hg://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
+    git://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
 "
 
 EOF
