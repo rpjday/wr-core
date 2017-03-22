@@ -162,10 +162,10 @@ PULSAR_UNATTENDED_UPGRADE = "true"
 PNWHITELIST_LAYERS_forcevariable = ""
 
 PREMIRRORS_append := "\\
-    http://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
-    https://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
-    hg://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
-    git://.*/.* file://\${TOPDIR}/../premirrors8/ \n \\
+    http://.*/.* file://${OEROOT}/../../premirrors8/ \n \\
+    https://.*/.* file://${OEROOT}/../../premirrors8/ \n \\
+    hg://.*/.* file://${OEROOT}/../../premirrors8/ \n \\
+    git://.*/.* file://${OEROOT}/../../premirrors8/ \n \\
 "
 
 EOF
