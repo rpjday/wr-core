@@ -73,7 +73,7 @@
 [submodule "meta-gateway"]
 	path = layers/meta-gateway
 	url = ../meta-gateway
-	branch = master
+	branch = pulsar-8
 [submodule "vendor-proprietary"]
 	path = layers/vendor-proprietary
 	url = ../vendor-proprietary
