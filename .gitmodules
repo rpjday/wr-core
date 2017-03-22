@@ -109,7 +109,7 @@
 [submodule "layers/meta-secure-env"]
 	path = layers/meta-secure-env
 	url = ../meta-secure-env
-	branch = master
+	branch = pulsar-8
 [submodule "layers/meta-measured"]
 	path = layers/meta-measured
 	url = ../meta-measured
