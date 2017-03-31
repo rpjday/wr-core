@@ -71,6 +71,7 @@ if [ $? = 0 ] ; then
           for e in $CUSTOM_LAYERS wrlabs-integration \
 	       meta-secure-env \
 	       meta-measured \
+	       meta-ima \
 	       wr-kernel \
 	       meta-intel \
 	       intel-apollolake \
