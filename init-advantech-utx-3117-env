@@ -199,6 +199,7 @@ CUBE_DOM_GW_EXTRA_INSTALL += "\
     ipset \
     libcli \
     umip \
+    ruby \
     ntfsprogs \
     ntfs-3g \
     sshfs-fuse \
