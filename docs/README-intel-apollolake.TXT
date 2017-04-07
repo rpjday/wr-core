@@ -42,7 +42,7 @@ cd /opt/installer
 # After installation, reboot the target and unplug the usb installer stick, Pulsar will
 # boot up from installed local storage device
 
-### login: root  password: root
+### login: root  password: incendia
 
 ### Supported Features 
 -------------------------------------------------------------------------------
