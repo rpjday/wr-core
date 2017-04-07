@@ -10,8 +10,6 @@ features:
 4. Storage Encryption
 5. IMA
 
-For the other board related features, please refer to README-intel-apollolake.TXT.
-
 ############## Quick start clip here ###################
 git clone -b pulsar-8 --recurse-submodules https://github.com/WindRiver-OpenSourceLabs/wr-core
 cd wr-core
@@ -20,7 +18,7 @@ cd wr-core
 ./scripts/host_package_install.sh --install --yes
 #########################################################################
 
-. init-intel-apollolake-env
+. init-intel-apollolake-secure-full-feature-env
 bitbake cube-desktop cube-dom0 cube-essential cube-gw
 
 # To build an installer image or USB stick with Gateway support
