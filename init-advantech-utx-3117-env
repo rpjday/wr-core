@@ -63,6 +63,7 @@ if [ $? = 0 ] ; then
 	       meta-java \
 	       meta-secure-env \
 	       meta-measured \
+	       meta-ima \
 	       wr-kernel \
 	       meta-intel \
 	       intel-apollolake \
@@ -138,9 +139,9 @@ require $OEROOT/../wr-base/templates/default/template.conf
 require $OEROOT/../wrlabs-integration/templates/default/template.conf
 require $OEROOT/../meta-secure-env/templates/default/template.conf
 require $OEROOT/../meta-secure-env/templates/feature/mok-secure-boot/template.conf
+require $OEROOT/../meta-secure-env/templates/feature/ima/template.conf
 require $OEROOT/../intel-apollolake/templates/default/template.conf
 require $OEROOT/../meta-gateway/templates/default/template.conf
-require $OEROOT/../meta-secure-env/templates/feature/tpm2/template.conf
 
 # Kernel overrides
 INHERIT += "blacklist"
