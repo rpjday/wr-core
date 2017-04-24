@@ -18,16 +18,11 @@ cd wr-core
 . init-advantech-utx-3117-env
 bitbake cube-dom0 cube-essential cube-gw
 
-# Build a self-bootable image with gateway support for UTX-3117 board
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/Intel_Apollolake/Intel-Apollolake-gw-live.sh --target-config Intel-Apollolake-gw-live.sh  --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar8-UTX-3117-gw.img
+#Build an installer image with Gateway support
+sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/Advantech-UTX-3117/advantech-utx-3117-gw-live.sh --target-config `pwd`/../install_templates/Advantech-UTX-3117/advantech-utx-3117-gw-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar8-UTX-3117-gw-installer.img
 
-# Then dd it to an usb stick or sd card and boot up Pulsar directly on target
-
-# Or build an installer image or USB stick with Gateway support
-#DEV=/dev/NBD_DEVICE  or a USB storage device
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/Intel_Apollolake/Intel-Apollolake-gw-live.sh --target-config `pwd`/../install_templates/Intel_Apollolake/Intel-Apollolake-gw-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 $DEV
-
-# Then plug the USB installer stick into target, boot it up and run the
+#Once the image is created, please dd it on a USB stick, then 
+# plug this USB installer stick into target, boot it up and run the
 # installation(Here suppose the storage device you want to install to is $DEV):
 cd /opt/installer
 ./sbin/cubeit-installer -b images/cube-essential-* $DEV
