@@ -19,7 +19,7 @@ cd wr-core
 bitbake cube-dom0 cube-essential cube-gw
 
 #Build an installer image with Gateway support
-sudo ../overc-installer/sbin/cubeit --force --installer --config `pwd`/../install_templates/Advantech-UTX-3117/advantech-utx-3117-gw-live.sh --target-config `pwd`/../install_templates/Advantech-UTX-3117/advantech-utx-3117-gw-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar8-UTX-3117-gw-installer.img
+sudo ../overc-installer/sbin/cubeit --force --installer --config `pwd`/../install_templates/Advantech-UTX-3117/utx-3117-gw-live.sh --target-config `pwd`/../install_templates/Advantech-UTX-3117/utx-3117-gw-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar8-UTX-3117-gw-installer.img
 
 #Once the image is created, please dd it on a USB stick, then 
 # plug this USB installer stick into target, boot it up and run the
