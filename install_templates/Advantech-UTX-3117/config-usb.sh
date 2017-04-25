@@ -24,6 +24,11 @@ INSTALL_FILES="${INSTALL_KERNEL} ${INSTALL_ROOTFS} ${INSTALL_MODULES} ${INSTALL_
 HDINSTALL_ROOTFS="${ARTIFACTS_DIR}/cube-graphical-builder-genericx86-64.tar.bz2 \
                   ${ARTIFACTS_DIR}/cube-builder-genericx86-64.tar.bz2"
 
+# Define the location of key store for secure boot and IMA signing
+#KEYS_DIR=
+
+# Control whether executing IMA signing for the rootfs images
+DO_IMA_SIGN=1
 
 # Uncomment to specify path to init.pp
 #INSTALL_PUPPET_DIR="puppet"
