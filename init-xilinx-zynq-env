@@ -91,8 +91,6 @@ if [ $? = 0 ] ; then
       perl -p -i -e 's#^(.*)oe-core/meta(.*)#$1wrlinux \\\n$1oe-core/meta$2#' conf/bblayers.conf
 
       cat<<EOF>>conf/local.conf
-DISTRO = "wrlinux-small"
-WRLINUX_RCPLVERSION = ".6"
 MACHINE = "xilinx-zynq"
 # Set default machine to select in the hob interface
 HOB_MACHINE = "xilinx-zynq"
