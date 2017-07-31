@@ -40,12 +40,12 @@
 	branch = pulsar-8
 [submodule "meta-overc"]
 	path = layers/meta-overc
-	url = ../meta-overc
-	branch = master
+	url = git://github.com/OverC/meta-overc.git
+	branch = master-oci
 [submodule "overc-installer"]
 	path = overc-installer
-	url = ../overc-installer
-	branch = master
+	url = https://github.com/OverC/overc-installer.git
+	branch = master-oci
 [submodule "meta-openembedded"]
 	path = layers/meta-openembedded
 	url = git://git.openembedded.org/meta-openembedded
