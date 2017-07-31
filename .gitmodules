@@ -1,10 +1,10 @@
 [submodule "bitbake"]
 	path = layers/bitbake
-	url = ../bitbake
+	url = git://github.com/openembedded/bitbake.git
 	branch = master
 [submodule "oe-core"]
 	path = layers/oe-core
-	url = ../oe-core
+	url = git://github.com/openembedded/openembedded-core.git
 	branch = master
 #[submodule "wrlinux"]
 #	path = layers/wrlinux
