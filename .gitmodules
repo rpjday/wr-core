@@ -33,7 +33,7 @@
 [submodule "wrlabs-integration"]
 	path = layers/wrlabs-integration
 	url = ../wrlabs-integration
-	branch = master
+	branch = master-oci-fli
 [submodule "xilinx-zynq"]
 	path = layers/xilinx-zynq
 	url = ../xilinx-zynq
