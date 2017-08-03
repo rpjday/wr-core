@@ -38,6 +38,11 @@ else
 fi
 unset BDIR
 
+#Temporarily rm those bb files since there were bugs in the meta-virtualization layer.
+#Once this issue had been fixed, we'll restore those rm.
+rm  -rf $OEROOT/../meta-virtualization/recipes-extended/images/cloud-image-guest.bb
+rm  -rf $OEROOT/../meta-virtualization/recipes-extended/images/cloud-image-controller.bb
+
 # Setup the links for the overc-installer if they don't exist
 for i in cube-cfg cube-ctl ; do
     if [ ! -e $OEROOT/../../overc-installer/sbin/$i  ] ; then
