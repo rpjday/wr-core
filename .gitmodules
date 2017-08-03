@@ -102,3 +102,7 @@
 	path = layers/meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
 	branch = master
+[submodule "layers/wr-secure-env"]
+	path = layers/wr-secure-env
+	url = https://github.com/jiazhang0/wr-secure-env.git
+	branch = pulsar-9
