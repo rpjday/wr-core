@@ -6,6 +6,10 @@ my_local_post_func()
     ln -sf /dev/null ${TMPMNT}/var/lib/lxc/cube-gw/rootfs/etc/systemd/system/named.service
     rm -f ${TMPMNT}/var/lib/lxc/cube-gw/rootfs/etc/systemd/system/systemd-resolved.service
     ln -sf /dev/null ${TMPMNT}/var/lib/lxc/cube-gw/rootfs/etc/systemd/system/systemd-resolved.service
+    ##### Activate serial port
+    ln -sf /dev/null ${TMPMNT}/etc/systemd/system/serial-getty@ttyS0.service
+    ln -sf /dev/null ${TMPMNT}/var/lib/lxc/cube-gw/rootfs/etc/systemd/system/getty@tty1.service
+    ln -sf /dev/null ${TMPMNT}/var/lib/lxc/dom0/rootfs/etc/systemd/system/getty@tty1.service
     cat<<EOF>${TMPMNT}/var/lib/lxc/cube-gw/rootfs/etc/config/network
 config interface 'loopback'
         option ifname 'lo'
