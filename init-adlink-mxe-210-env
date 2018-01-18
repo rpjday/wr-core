@@ -89,6 +89,7 @@ require ../layers/wrlabs-integration/templates/feature/luks/template.conf
 require ../layers/wrlabs-integration/templates/feature/tpm/template.conf
 require ../layers/wrlabs-integration/templates/feature/tpm2/template.conf
 
+CUBE_DOM_0_EXTRA_INSTALL_append = " linux-firmware-rs9113"
 INHERIT += "sign_rpm"
 '
 
