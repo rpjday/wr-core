@@ -25,8 +25,13 @@ INSTALL_FILES="${INSTALL_KERNEL} ${INSTALL_ROOTFS} ${INSTALL_MODULES} ${INSTALL_
 HDINSTALL_ROOTFS="${ARTIFACTS_DIR}/cube-graphical-builder-genericx86-64.tar.bz2 \
                   ${ARTIFACTS_DIR}/cube-builder-genericx86-64.tar.bz2"
 
-
-FIRMWARE_INSTALL="iwlwifi-7260-17.ucode"
+FIRMWARE_INSTALL="iwlwifi-7260-17.ucode \
+	        RS9113_AP_BT_DUAL_MODE.rps \
+		RS9113_WLAN_BT_DUAL_MODE.rps \
+	        RS9113_WLAN_QSPI.rps \
+	        S9113_WLAN_ZIGBEE.rps   \
+	        RS9113_ZIGBEE_COORDINATOR.rps   \
+	        RS9113_ZIGBEE_ROUTER.rps"
 
 # Uncomment to specify path to init.pp
 #INSTALL_PUPPET_DIR="puppet"
