@@ -12,6 +12,8 @@ HDINSTALL_CONTAINERS="${ARTIFACTS_DIR}/cube-dom0-intel-corei7-64.tar.bz2:console
 
 NETWORK_DEVICE="eth+ wl+ en+ ww+"
 
+FDISK_PARTITION_LAYOUT_INPUT="$CONFIG_DIRS/fdisk-partition-layout-bosch.txt"
+
 #HDINSTALL_CONTAINERS="${ARTIFACTS_DIR}/cube-dom0-intel-corei7-64.tar.bz2"
 INSTALL_ROOTFS="${ARTIFACTS_DIR}/cube-essential-intel-corei7-64.tar.bz2"
 
