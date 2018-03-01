@@ -1,6 +1,5 @@
 Quick start instructions to build Wind River Pulsar Linux
-for the Intel Minnow Board Max and Intel Compute Stick
-(Cherry Trail and Bay Trail)
+for the Intel NUC and Adlink MXE 21x boards
 
 For a more guides, examples and information please see:
 https://knowledge.windriver.com/?cid=pulsar_lx
@@ -9,34 +8,35 @@ For official images please visit:
 http://pulsar.windriver.com
 
 ############## Quick start clip here ###################
-git clone -b WRLINUX_10_17_LTS --recurse-submodules https://github.com/WindRiver-OpenSourceLabs/wr-core
+git clone -b pulsar-lts-17 --recurse-submodules https://github.com/WindRiver-OpenSourceLabs/wr-core
 cd wr-core
 
 ######### The first time only, check for required host packages #########
 ./scripts/host_package_install.sh --install --yes
 #########################################################################
 
-# Init the environment
-. init-intel-x86-env
+# Init the environment with security features enabled
+. init-intel-x86-secure-env
 
 # Build the images
 bitbake cube-desktop cube-dom0 cube-essential
 
-# Build a self-bootable image for IntelCubeDesktop board
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/IntelCubeDesktop/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar-intelcubedesktop.img
-# Then dd it to an usb stick or sd card and boot up Pulsar directly on target
+# Build an installer image (pick WR sample keys under artifacts directory for IMA signature)
 
-# Or build an installer image or USB stick
-#DEV=/dev/NBD_DEVICE  or a USB storage device
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/IntelCubeDesktop/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 $DEV
-# Then plug the USB installer stick into target, boot it up and run the
-# installation(Here suppose the storage device you want to install to is $DEV):
-cd /opt/installer
-./sbin/cubeit-installer -b images/cube-essential-* $DEV
+sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/IntelCubeDesktop/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 --installer --ima-sign --ima-key-pass pulsar <pulsar-installer-image>
+
+# dd the image file into a storage media
+sudo dd if=<pulsar-installer-image> of=/dev/sdx
+
+# Then install the storage media on target, boot the target from it and run the
+# install instructions(Here suppose the storage device you want to install to is $DEV):
+cd /opt/container
+./installers/cubeit-installer -b images/cube-essential-* $DEV
+
 # After installation, reboot the target and unplug the usb installer stick, Pulsar will
 # boot up from installed local storage device
 
-### login: root  password: root
+### login: root  password: incendia
 
 ### Optionally simulate the image with kvm/qemu
 
