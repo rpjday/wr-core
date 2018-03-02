@@ -74,10 +74,6 @@
 	path = layers/external-binaries
 	url = ../external-binaries
 	branch = master
-[submodule "wr-hac-agent"]
-	path = layers/wr-hac-agent
-	url = ../wr-hac-agent
-	branch = master
 [submodule "meta-raspberrypi"]
 	path = layers/meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
