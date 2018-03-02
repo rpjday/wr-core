@@ -98,3 +98,7 @@
 	path = layers/meta-iot-cloud
 	url = ../meta-iot-cloud
 	branch = pulsar-x
+[submodule "meta-up-board"]
+	path = layers/meta-up-board
+	url = ../meta-up-board
+	branch = pulsar-x
