@@ -2,7 +2,7 @@
 # When CONFIG_REV changes the local.conf and bblayers files will get
 # rebuilt
 
-CONFIG_REV=9
+CONFIG_REV=11
 DO_CONFIG=1
 
 if [ -z "$BDIR" ]; then
@@ -93,13 +93,14 @@ if [ $? = 0 ] ; then
 #	    meta-measured \
 
 	perl -p -i -e 's#BBLAYERS \?=#BBLAYERS =#' conf/bblayers.conf
-	for e in `echo -E $EXTRA_PRE_LAYERS` \
+	for e in \
             $CUSTOM_LAYERS \
 	    wrlabs-integration \
+	    $EXTRA_PRE_LAYERS \
 	    meta-gateway \
-	    wr-hac-agent \
 	    meta-overc/meta-cube \
 	    meta-cloud-services \
+	    meta-cloud-services/meta-openstack \
             meta-browser \
 	    meta-security \
 	    meta-iot-cloud \

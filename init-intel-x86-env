@@ -54,7 +54,7 @@ if [ "$S_ARGS" = "" ] ; then
 fi
 
 # Additional Layers
-EXTRA_PRE_LAYERS=meta-intel
+EXTRA_PRE_LAYERS="meta-intel meta-up-board"
 
 # Local machine configuration
 MACH_LOCAL_CONF='
