@@ -33,6 +33,11 @@
     git push --tags -f git@github.com:WindRiver-OpenSourceLabs/meta-virtualization origin/master:master
 )
 (
+    cd layers/meta-cloud-services && \
+    git fetch  git://git.yoctoproject.org/meta-cloud-services "+refs/heads/*:refs/remotes/origin/*"
+    git push --tags -f git@github.com:WindRiver-OpenSourceLabs/meta-cloud-services origin/master:master
+)
+(
     cd layers/meta-security && \
     git fetch  git://git.yoctoproject.org/meta-security "+refs/heads/*:refs/remotes/origin/*"
     git push --tags -f git@github.com:WindRiver-OpenSourceLabs/meta-security origin/master:master
