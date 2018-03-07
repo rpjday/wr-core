@@ -52,3 +52,8 @@
     git fetch  https://github.com/intel-iot-devkit/meta-iot-cloud.git "+refs/heads/*:refs/remotes/origin/*"
     git push --tags -f git@github.com:WindRiver-OpenSourceLabs/meta-iot-cloud origin/master:master
 )
+(
+    cd layers/intel-iot-refkit && \
+    git fetch  https://github.com/intel/intel-iot-refkit.git "+refs/heads/*:refs/remotes/origin/*"
+    git push --tags -f git@github.com:WindRiver-OpenSourceLabs/intel-iot-refkit origin/master:master
+)

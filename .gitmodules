@@ -98,3 +98,7 @@
 	path = layers/meta-up-board
 	url = ../meta-up-board
 	branch = pulsar-x
+[submodule "layers/intel-iot-refkit"]
+	path = layers/intel-iot-refkit
+	url = ../intel-iot-refkit
+	branch = pulsar-x

@@ -2,7 +2,7 @@
 # When CONFIG_REV changes the local.conf and bblayers files will get
 # rebuilt
 
-CONFIG_REV=11
+CONFIG_REV=12
 DO_CONFIG=1
 
 if [ -z "$BDIR" ]; then
@@ -106,6 +106,7 @@ if [ $? = 0 ] ; then
 	    meta-iot-cloud \
 	    meta-java \
 	    meta-dpdk \
+	    intel-iot-refkit/meta-refkit-extra \
             meta-openembedded/meta-initramfs \
             meta-openembedded/meta-filesystems \
 	    meta-openembedded/meta-networking \
