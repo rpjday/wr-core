@@ -13,7 +13,7 @@ INSTALL_KERNEL="${ARTIFACTS_DIR}/bzImage"
 INSTALL_ROOTFS="${ARTIFACTS_DIR}/cube-essential-intel-corei7-64.tar.bz2"
 INSTALL_MODULES=""
 INSTALL_INITRAMFS="${ARTIFACTS_DIR}/cube-builder-initramfs-intel-corei7-64.cpio.gz"
-INSTALL_EFIBOOT="${ARTIFACTS_DIR}/bootx64.efi"
+INSTALL_EFIBOOT="${ARTIFACTS_DIR}/grub-efi-bootx64.efi"
 GRUB_TARGET="x86_64-efi i386-pc"
 
 INSTALL_GRUBHDCFG="grub-hd.cfg"
