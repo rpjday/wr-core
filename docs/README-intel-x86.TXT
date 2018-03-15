@@ -1,6 +1,5 @@
 Quick start instructions to build Wind River Pulsar Linux
-for the Intel Minnow Board Max and Intel Compute Stick
-(Cherry Trail and Bay Trail)
+for the Intel NUC.
 
 For a more guides, examples and information please see:
 https://knowledge.windriver.com/?cid=pulsar_lx
@@ -23,16 +22,17 @@ cd wr-core
 bitbake cube-desktop cube-dom0 cube-essential
 
 # Build a self-bootable image for IntelCubeDesktop board
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/IntelCubeDesktop/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar-intelcubedesktop.img
+sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/intel-x86-secure/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 pulsar-intelcubedesktop.img
 # Then dd it to an usb stick or sd card and boot up Pulsar directly on target
 
 # Or build an installer image or USB stick
 #DEV=/dev/NBD_DEVICE  or a USB storage device
-sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/IntelCubeDesktop/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 $DEV
+#sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/intel-x86-secure/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 $DEV
+sudo ../overc-installer/sbin/cubeit --force --config `pwd`/../install_templates/intel-x86-secure/IntelCubeDesktop-live.sh --target-config IntelCubeDesktop-live.sh --artifacts `pwd`/tmp/deploy/images/intel-corei7-64 --installer pulsar-installer.img
 # Then plug the USB installer stick into target, boot it up and run the
 # installation(Here suppose the storage device you want to install to is $DEV):
 cd /opt/installer
-./sbin/cubeit-installer -b images/cube-essential-* $DEV
+./installers/cubeit-installer -b images/cube-essential-* $DEV
 # After installation, reboot the target and unplug the usb installer stick, Pulsar will
 # boot up from installed local storage device
 

@@ -6,7 +6,7 @@ INITRAMFS_EXTRAS=""
 
 # set artifacts dir to the location of the kernel, image, etc.
 if [ -z "${ARTIFACTS_DIR}" ]; then
-    ARTIFACTS_DIR=""
+    ARTIFACTS_DIR="${IMAGESDIR}"
 fi
 
 INSTALL_KERNEL="${ARTIFACTS_DIR}/bzImage"
@@ -61,7 +61,7 @@ install a working system configuration on to your internal hard drive.
 
 INSTALLER_COMPLETE="Installation is now complete"
 
-CONFIRM_INSTALL=1
+CONFIRM_INSTALL=${CONFIRM_INSTALL=1}
 CONFIRM_REBOOT=0
 
 CMD_GRUB_INSTALL="/usr/sbin/grub-install"
