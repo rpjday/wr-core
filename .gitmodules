@@ -81,3 +81,7 @@
 	path = layers/nxp-imx6
 	url = https://github.com/WindRiver-OpenSourceLabs/nxp-imx6.git
 	branch = WRLINUX_10_17_LTS
+[submodule "meta-device-cloud"]
+	path = layers/meta-device-cloud
+	url = https://github.com/WindRiver-OpenSourceLabs/meta-device-cloud.git
+	branch = WRLINUX_10_17_LTS_RCPL0006
