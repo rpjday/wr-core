@@ -11,5 +11,5 @@ MY_LOCAL_FUNC_DIR=`readlink -f ${CONFIG_DIRS}`
 export LOCAL_POST_FUNCTION_DEFS="${MY_LOCAL_FUNC_DIR}/functions-local.sh"
 export LOCAL_CUSTOM_HDD_POST_FUNCS="my_local_post_func"
 HDINSTALL_CONTAINERS="${ARTIFACTS_DIR}/cube-dom0-fsl-ls10xx.tar.bz2:console:vty=2:mergepath=/usr,essential \
-                      ${ARTIFACTS_DIR}/cube-gw-gfx-fsl-ls10xx.tar.bz2:monitored:privileged:console:vty=3,active:net=1:mergepath=/usr,essential,dom0 \
+                      ${ARTIFACTS_DIR}/cube-gw-gfx-fsl-ls10xx.tar.bz2:monitored:privileged:console:vty=3,active:net=1:cube.admin=1:mergepath=/usr,essential,dom0 \
 "
