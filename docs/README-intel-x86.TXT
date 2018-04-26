@@ -91,3 +91,39 @@ To do the "unlock with hotfix", please run command:
 
 Once you do the unlock, you can install any programs in the system by rpm/dnf commands.
 
+###### Security Features Available ######
+
+On intel-x86 architecture, by now the following four security features have been supported:
+1) Integrity Measurement Architecture (IMA)
+2) UEFI Secure Boot
+3) Disk Encryption based on TPM2.0
+4) GPG signing and verifying for OSTree commits and RPM packages
+
+To build a project including these security features, please init your project with init-intel-x86-secure-env.
+The init command is as below:
+
+$ . init-intel-x86-secure-env
+
+Then build your project as the nornal project building:
+
+$bitbake cube-gw-ostree-runtime
+
+Notes: Since the xfs filesystem doesn't support the IMA signing, please don't init and build your project
+on xfs filesystem. The ext3/ext4 filesystem are preferred.
+
+For Disk Encryption feature, the encrypted partition will be created and initialized at the system's first boot, 
+thus it only support the data partiton encryption instead of the rootfs partition. The live image produced by
+the buiding command will encrypt the third partition which will be mounted to /var directory at the first boot.
+
+If you want to specify other partitions to be encrypted, please label them with prefix of "luks_" in your installer
+configure file /var/wic.wks.sample, such as:
+
+part /var --source rootfs --rootfs-dir=/ostree/deploy/pulsar-linux/var  --ondisk sda --fstype=ext4 --label luks_fluxdata --active --align 4
+
+This line will specify installer to labeled the partition as "luks_fluxdata" which will be mounted to "/var" directory, 
+and the system will try to change this partion to a luks partition and encrypted it with the TPM2.0 module support at 
+the system's first boot. 
+
+This feature works with TPM2.0 module only for now. If no TPM2.0 module available on the target, all partitions with "luks_" 
+prefix label "luks_xxx" will be relabed to "xxx" and don't to any encryption operation.
+
