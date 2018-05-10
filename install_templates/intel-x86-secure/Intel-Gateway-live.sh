@@ -7,7 +7,7 @@ SCREEN_GETTY_CONSOLE=ttyS0,115200
 HDINSTALL_ROOTFS="${ARTIFACTS_DIR}/cube-essential-intel-corei7-64.tar.bz2"
 
 HDINSTALL_CONTAINERS="${ARTIFACTS_DIR}/cube-dom0-intel-corei7-64.tar.bz2:console:vty=2 \
-                      ${ARTIFACTS_DIR}/cube-gw-intel-corei7-64.tar.bz2:console:vty=3,active:net=1:cube.admin=1:cube.device.mgr=self \
+                      ${ARTIFACTS_DIR}/cube-gw-intel-corei7-64.tar.bz2:console:vty=3,active:net=1:cube.admin=1:cube.device.mgr=self:mounts=bind|/lib/modules|/lib/modules,mounts=bind|/lib/firmware|/lib/firmware \
 "
 
 NETWORK_DEVICE="eth+ wl+ en+"
@@ -33,4 +33,5 @@ my_local_post_func()
     rm -f ${TMPMNT}/opt/container/cube-gw/rootfs/etc/systemd/system/systemd-resolved.service
     ln -sf /dev/null ${TMPMNT}/opt/container/cube-gw/rootfs/etc/systemd/system/systemd-resolved.service
     ln -sf /dev/null ${TMPMNT}/opt/container/cube-gw/rootfs/etc/systemd/system/systemd-networkd.service
+    ln -sf /dev/null ${TMPMNT}/opt/container/cube-gw/rootfs/etc/systemd/system/systemd-networkd.socket
 }
