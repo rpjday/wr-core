@@ -75,6 +75,9 @@ Once the update/upgrade completes, reboot is needed. And there is alway a rollba
 boot option in grub menu, which allow you to roll back your system if there is
 anything wrong with the upgrade.
 
+If you require the data size transferred by ostree upgrade to be at minimum
+due to bandwith limitation, please refer docs/README-minimize-data-size.TXT
+
 ###### Setup a development environment on Pulsar system ######
 
 Pulsar is based on the OStree, thus its rootfs is readonly and you cannot do

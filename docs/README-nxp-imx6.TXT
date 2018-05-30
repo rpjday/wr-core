@@ -53,6 +53,9 @@ Then you can use the following command to update/upgrade your system now:
 
 Once the update/upgrade completed, you need to reboot your system to apply the changes.
 
+If you require the data size transferred by ostree upgrade to be at minimum
+due to bandwith limitation, please refer docs/README-minimize-data-size.TXT
+
 ###### To Setup a development environment on Pulsar system ######
 
 Pulsar is based on the OStree system, thus its rootfs is readonly and you cannot do any changes
