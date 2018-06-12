@@ -19,6 +19,15 @@ Init the environment
 $. init-nxp-imx6-env
 
 Build the images
+This BSP supports two image types:
+  cube-gw-ostree-runtime
+  seco-image-minimal-ostree-runtime
+
+The cube-gw-ostree-runtime is a full feature image type and the seco-image-minimal-ostree-runtime
+only include minimal packages which are necessary for the Seco support. The rest of this README
+will take the cube-gw-ostree-runtime image as an example. For the using of seco-image-minimal-ostree-runtime,
+you only need to replace the image name to seco-image-minimal-ostree-runtime.
+
 $bitbake cube-gw-ostree-runtime
 
 Once build successfully, you can locate the image from:
