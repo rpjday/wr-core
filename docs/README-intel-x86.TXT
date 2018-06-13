@@ -75,26 +75,8 @@ Once the update/upgrade completes, reboot is needed. And there is alway a rollba
 boot option in grub menu, which allow you to roll back your system if there is
 anything wrong with the upgrade.
 
-If you require the data size transferred by ostree upgrade to be at minimum
-due to bandwith limitation, please refer docs/README-minimize-data-size.TXT
-
-###### Setup a development environment on Pulsar system ######
-
-Pulsar is based on the OStree, thus its rootfs is readonly and you cannot do
-any changes to key system components like "/usr", "/bin" and "/lib" at runtime.
-If you want to add/install any other packages by rpm/dnf command, you should
-unlock the ostree first. There are two types of unlocks: "unlock temporarily"
-and "unlock with hotfix". The difference between them is that: "unlock temporarily"
-will not keep the changes after the system reboots; On the contrary, "unlock with hotfix"
-will retain changes across reboots. 
-
-To do the "unlock temporarily", please run command:
-#ostree admin unlock
-
-To do the "unlock with hotfix", please run command:
-#ostree admin unlock --hotfix
-
-Once you do the unlock, you can install any packages in the system by rpm/dnf commands.
+If you require the data size transferred by ostree upgrade to be at minimum size
+due to bandwidth limit, please refer to docs/README-minimize-data-size.TXT
 
 ###### Security Features Available ######
 
@@ -117,21 +99,23 @@ Please check docs in https://github.com/WindRiver-OpenSourceLabs/meta-secure-cor
 if you want to know more about these security features, but following notes need
 your attention here:
 
-IMA: xfs filesystem doesn't support IMA signing, please don't build your project
-on xfs filesystem for now. The ext3/ext4 filesystem are preferred.
+IMA: There are some requirements for filesystem on build host. IMA requires filesystem
+with extended attributes. For ext3/ext4 filesystem, extended attributes are supported
+in default mount option. However, for xfs, please make sure the following mount options are included:
+
+$sudo mount -o rw,noatime,iversion /dev/sdxy /path/to/buildarea/
 
 Disk Encryption: the encrypted data partition will be created and initialized at
-the system's first boot. For example, the third partition which is mounted to
-/var directory in live image is encrypted by default. If you want other partitions
+the system's first boot. For example, the last partition which is mounted on
+/var in live image is encrypted by default. If you want other partitions
 to be encrypted during installation, please label them with prefix of "luks_" in
-your installer configure file /var/wic.wks.sample, similar to what we did for /var partition:
+your kick start file /var/wic.wks.sample, similar to what we did for /var partition:
 
 part /var --source rootfs --rootfs-dir=/ostree/deploy/pulsar-linux/var  --ondisk sda --fstype=ext4 --label luks_fluxdata --active --align 4
 
-This line requests installer to create /var partition and label it as "luks_fluxdata",
-then the installed system will make it as luks partition and encrypt it by using
-TPM2.0 module at the system's first boot. 
+This syntax requests installer to create /var partition and label it as "luks_fluxdata",
+then Pulsar will make it into a luks partition and encrypt it by using TPM2.0 module at the its first boot.
 
 This feature works with TPM2.0 module only for now. If there is no TPM2.0 module
-available on the target, all partitions with labels prefixed by "luks_" will be
-relabeled without "luks_" and don't to any encryption operation.
+available on the target, the disk encryption will be skipped and all partitions with labels "luks_xxx" will be
+relabeled by removing the prefix "luks_".
