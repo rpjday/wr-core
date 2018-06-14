@@ -42,40 +42,50 @@ If you are boring to pick up recipe name to SIGGEN_EXCLUDERECIPES_ABISAFE one
 by one, the var-SIGGEN_EXCLUDERECIPES_ABISAFE support `*' to match them all.
 
 ### Example ###
+In this example, we require to apply CVE/bug fix patches to recipes of
+libc and kernel frequently, and do not want to trigger target recipes
+rebuild that depend on them.
 
-1) Init environment and build image from scratch
-$. init-intel-x86-env
-
-$ bitbake cube-gw-ostree-runtime
-
-2) Apply CVE/bug fix patches to recipes of libc and kernel, and we do not want
-to rebuild other recipes that depend on them. Add the following setting to
-conf/local.conf:
+1) Init environment and set var-SIGGEN_EXCLUDERECIPES_ABISAFE, add the
+following setting to conf/local.conf:
 ...
 SIGGEN_EXCLUDERECIPES_ABISAFE_append = " virtual/libc virtual/kernel"
 ...
 
-3) Rebuild image, only glibc and kernel are built, recipes that depend on
+2) Build image to generate sstate cache after SIGGEN_EXCLUDERECIPES_ABISAFE
+setting
+
+$ bitbake cube-gw-ostree-runtime
+
+3) Apply CVE/bug fix patches to recipes of libc and kernel.
+
+4) Rebuild image, glibc and kernel are built, target recipes that depend on
 them are not.
 
 $ bitbake cube-gw-ostree-runtime
 
-4) If you want to remove all recipes dependencies:
+5) If you want to remove all target recipes dependencies, have the following
+set at step 1)
 ...
 SIGGEN_EXCLUDERECIPES_ABISAFE_append = " *"
 ...
 
-Rebuild image, only changed recipes will be built.
-
 ### Caution ###
-If you add an inappropriate variable to this list (especially `*'), the
-software might break at runtime if the interface of recipe was changed
-after the other had been built.
+1) If you add an inappropriate variable to this list (especially `*'), the
+software might break at runtime if the interface of recipe was changed after
+the other had been built.
 
 In this situation, you need to clean up the sstate cache of affected recipe
 manually, and rebuild image, the affected recipe will be rebuilt:
 $ bitbake <affected-recipe-name> -ccleansstate
 $ bitbake cube-gw-ostree-runtime
+
+2) SIGGEN_EXCLUDERECIPES_ABISAFE works on target recipe, and do not remove
+native/cross/nativesdk recipe dependencies any further. (Rebuild of native/
+cross/nativesdk recipe do not affect ostree system upgrade)
+
+3) Set SIGGEN_EXCLUDERECIPES_ABISAFE at first build, make sure the existed
+sstate cache based on it.
 
 https://www.yoctoproject.org/docs/2.0/ref-manual/ref-manual.html#var-SIGGEN_EXCLUDERECIPES_ABISAFE
 
