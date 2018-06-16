@@ -102,3 +102,7 @@
 	path = layers/intel-iot-refkit
 	url = ../intel-iot-refkit
 	branch = pulsar-x
+[submodule "layers/meta-flatpak"]
+	path = layers/meta-flatpak
+	url = ../meta-flatpak
+	branch = master
