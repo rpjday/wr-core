@@ -1,10 +1,10 @@
 Quick start instructions to build Wind River Pulsar Linux
-for Advantech UTX-3117 project
+for Advantech UTX-3117 (Intel Atom) project
 
-For a more guides, examples and information please see:
+For more guides, examples and information please see:
 https://knowledge.windriver.com/?cid=pulsar_lx
 
-For official images please visit:
+For official images, please visit:
 http://pulsar.windriver.com
 
 ############## Quick start clip here ###################

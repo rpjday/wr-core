@@ -1,8 +1,7 @@
 Quick start instructions to build Wind River Pulsar Linux
-for the Intel Apollolake boards with secure full features supported.
+for the Intel Apollo Lake boards with secure full features supported.
 
-For the secure full features, they include the following security 
-features:
+Secure full features includes the following:
 
 1. UEFI Secure Boot
 2. MOK Secure Boot

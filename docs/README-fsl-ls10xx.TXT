@@ -1,10 +1,10 @@
 Quick start instructions to build Wind River Pulsar Linux
-for the NXP LS1021a-IOT board.
+for the NXP QorIQ LS1021a-IOT board.
 
-For a more guides, examples and information please see:
+For more guides, examples and information please see:
 https://knowledge.windriver.com/?cid=pulsar_lx
 
-For official images please visit:
+For official images, please visit:
 http://pulsar.windriver.com
 
 ############## Quick start clip here ###################
@@ -22,12 +22,12 @@ cd wr-core
 # Build the gateway software
 bitbake cube-gw cube-dom0 cube-essential
 
-# Build a bootable image for FSL LS1021A-IOT board
+# Build a bootable image for NXP LS1021A-IOT board
 sudo ../overc-installer/sbin/cubeit --force \
    --config `pwd`/../install_templates/LS1021A-IOT/LS1021A-IOT-gw-live.sh \
    --target-config LS1021A-IOT-gw-live.sh \
    --artifacts `pwd`/tmp/deploy/images/fsl-ls10xx pulsar8-fsl-ls1021aiot.img
 
-# And finally dd it to a micro sd card and boot up Pulsar directly on target
+# And finally "dd" it to a micro SD card and boot up Pulsar directly on target
 
 ### login: root  password: incendia

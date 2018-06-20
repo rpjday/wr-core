@@ -1,9 +1,7 @@
 ## Quick start instructions to build Wind River Pulsar Linux ##
 
-# For a more guides, examples and information please see:
+# For more guides, examples and information please see:
 #      https://knowledge.windriver.com/?cid=pulsar_lx
-
-
 
 bitbake cube-dom0 cube-server cube-essential
 
