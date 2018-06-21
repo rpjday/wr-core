@@ -28,10 +28,6 @@ if [ -n "$BBSERVER" ]; then
    unset BBSERVER
 fi
 
-if [ -n "$BBSERVER" ]; then
-   unset BBSERVER
-fi
-
 # Figure out the "TOP" relative to TOP/layers/oe-core
 THIS_SCRIPT=`dirname $OEROOT`
 THIS_SCRIPT=`dirname $THIS_SCRIPT`
